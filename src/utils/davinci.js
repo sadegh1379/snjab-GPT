@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai';
 
 export const davinci = async (prompt, key) => {
   const configuration = new Configuration({
-    apiKey: key,
+    apiKey: process.env.REACT_APP_OPEN_AI_API_KEY,
   });
 
   const openai = new OpenAIApi(configuration);

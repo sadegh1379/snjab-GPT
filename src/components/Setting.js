@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { checkApiKey } from '../utils/checkKeys';
 
+const apiKey = process.env.REACT_APP_OPEN_AI_API_KEY;
+
 const Setting = ({ modalOpen, setModalOpen }) => {
-  const apiKey = window.localStorage.getItem('api-key') || '';
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [input, setInput] = useState('');
-
+  console.log('apiKey setting:', apiKey);
   const saveKey = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,11 +33,11 @@ const Setting = ({ modalOpen, setModalOpen }) => {
     setInput('');
   };
 
-  useEffect(() => {
-    if (modalOpen) {
-      setInput(apiKey);
-    }
-  }, [apiKey, modalOpen]);
+  // useEffect(() => {
+  //   if (modalOpen) {
+  //     setInput(apiKey);
+  //   }
+  // }, [apiKey, modalOpen]);
 
   return (
     <form
