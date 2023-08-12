@@ -68,8 +68,7 @@ const SideBar = () => {
         <DarkMode open={open} />
         <div className='nav'>
           <a
-            href='https://www.buymeacoffee.com/eyuel'
-            rel='noreferrer'
+            href='https://sadegh-akbari.vercel.app'
             target='_blank'
             className='nav__item'>
             <div className='nav__icons'>
