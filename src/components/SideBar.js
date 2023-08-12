@@ -78,7 +78,7 @@ const SideBar = () => {
             <h1 className={`${!open && 'hidden'}`}>Support this project</h1>
           </a>
         </div>
-        <div className='nav'>
+        {/* <div className='nav'>
           <a
             rel='noreferrer'
             target='_blank'
@@ -89,15 +89,15 @@ const SideBar = () => {
             </div>
             <h1 className={`${!open && 'hidden'}`}>Clone on Github</h1>
           </a>
-        </div>
-        <div onClick={() => setModalOpen(true)} className='nav'>
+        </div> */}
+        {/* <div onClick={() => setModalOpen(true)} className='nav'>
           <span htmlFor='setting-modal' className='nav__item'>
             <div className='nav__icons'>
               <MdOutlineVpnKey />
             </div>
             <h1 className={`${!open && 'hidden'}`}>OpenAI Key</h1>
           </span>
-        </div>
+        </div> */}
       </div>
       <Modal title='Setting' modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <Setting modalOpen={modalOpen} setModalOpen={setModalOpen} />
