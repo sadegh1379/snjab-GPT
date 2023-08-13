@@ -1,6 +1,6 @@
 import Filter from 'bad-words';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { MdSend } from 'react-icons/md';
+import { SiTelegram } from 'react-icons/si';
 import { ChatContext } from '../context/chatContext';
 import { davinci } from '../utils/davinci';
 import ChatMessage from './ChatMessage';
@@ -85,9 +85,9 @@ const ChatView = () => {
   /**
    * Scrolls the chat area to the bottom when the messages array is updated.
    */
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages, thinking]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, thinking]);
 
   /**
    * Focuses the TextArea input to when the component is first rendered.
@@ -98,29 +98,29 @@ const ChatView = () => {
 
   return (
     <div className='chatview'>
-      <main className='chatview__chatarea'>
+      <main className='chatview__chatarea mt-3'>
         {messages.map((message, index) => (
           <ChatMessage key={index} message={{ ...message }} />
         ))}
-
         {thinking && <Thinking />}
 
         <span ref={messagesEndRef}></span>
       </main>
       <form className='form' onSubmit={sendMessage}>
-        <div className='flex items-stretch justify-between w-full'>
+        <div className='flex flex-row-reverse items-stretch justify-between w-full my-5'>
           <textarea
             ref={inputRef}
             className='chatview__textarea-message'
             value={formValue}
             onKeyDown={handleKeyDown}
             onChange={(e) => setFormValue(e.target.value)}
+            placeholder='سوال خود را بپرسید'
           />
           <button
             type='submit'
-            className='chatview__btn-send'
+            className='cursor-pointer'
             disabled={!formValue}>
-            <MdSend size={30} />
+            <SiTelegram size={50} color="rgb(16, 76, 130)" />
           </button>
         </div>
       </form>

@@ -1,12 +1,12 @@
+import moment from 'moment';
 import React from 'react';
-import { MdComputer } from 'react-icons/md';
+import { HiUserCircle } from 'react-icons/hi';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import remarkGfm from 'remark-gfm';
-import moment from 'moment';
+import snjabLogo from '../assets/images/ai.png';
 import Image from './Image';
-import person from '../assets/person.png';
 
 /**
  * A chat message component that displays a message with a timestamp and an icon.
@@ -19,13 +19,14 @@ const ChatMessage = (props) => {
   return (
     <div
       key={id}
-      className={`${ai && 'flex-row-reverse bg-light-white'} message`}>
+      className={`${ai ? ' bg-gray-300 text-gray-600' : 'bg-s-blue text-white'} message`}>
       {selected === 'DALL·E' && ai ? (
         <Image url={text} />
       ) : (
         <div className='message__wrapper'>
           <ReactMarkdown
-            className={`message__markdown ${ai ? 'text-left' : 'text-right'}`}
+            // className={`message__markdown ${ai ? 'text-left' : 'text-right'}`}
+            className={`text-right`}
             children={text}
             remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
             components={{
@@ -49,7 +50,7 @@ const ChatMessage = (props) => {
           />
 
           <div
-            className={`${ai ? 'text-left' : 'text-right'} message__createdAt`}>
+            className={`text-right text-sm font-thin mt-2 ${ai ? 'text-gray-600' : 'text-slate-200'}`}>
             {moment(createdAt).calendar()}
           </div>
         </div>
@@ -58,14 +59,14 @@ const ChatMessage = (props) => {
       <div className='message__pic'>
         {ai ? (
           <div className='avatar'>
-            <div className='w-8 border rounded-full'>
-              <MdComputer className='w-6 h-full mx-auto' />
+            <div className='w-14 rounded-full'>
+              <img className='w-24 h-24' src={snjabLogo} alt='profile pic' />
             </div>
           </div>
         ) : (
           <div className='avatar'>
-            <div className='w-8 border rounded-full'>
-              <img src={person} alt='profile pic' />
+            <div className='w-14 rounded-full flex justify-center items-center'>
+            <HiUserCircle size={60}/>
             </div>
           </div>
         )}
