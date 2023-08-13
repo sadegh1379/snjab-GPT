@@ -26,7 +26,7 @@
 
   /* CHATVIEW */
   .chatview {
-    @apply flex flex-col  duration-300 overflow-hidden relative min-h-[70vh]
+    @apply flex flex-col  duration-300 overflow-hidden relative md:min-h-[70vh] min-h-[85vh] max-w-6xl mx-auto
   ;
   }
 
@@ -74,10 +74,6 @@
 
   .message__pic {
     @apply h-12 w-12 mx-2 rounded-full flex items-center justify-center ;
-  }
-
-  .message__thinking {
-    @apply animate-pulse duration-1000 h-12 w-12 dark:text-white text-black text-xl;
   }
 
   /* Signin Page */

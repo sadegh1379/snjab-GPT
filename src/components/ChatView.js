@@ -1,10 +1,10 @@
-import Filter from 'bad-words';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { SiTelegram } from 'react-icons/si';
-import { ChatContext } from '../context/chatContext';
-import { davinci } from '../utils/davinci';
-import ChatMessage from './ChatMessage';
-import Thinking from './Thinking';
+import Filter from "bad-words";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { SiTelegram } from "react-icons/si";
+import { ChatContext } from "../context/chatContext";
+import { davinci } from "../utils/davinci";
+import ChatMessage from "./ChatMessage";
+import Thinking from "./Thinking";
 
 /**
  * A chat view component that displays a list of messages and a form for sending new messages.
@@ -12,7 +12,7 @@ import Thinking from './Thinking';
 const ChatView = () => {
   const messagesEndRef = useRef();
   const inputRef = useRef();
-  const [formValue, setFormValue] = useState('');
+  const [formValue, setFormValue] = useState("");
   const [thinking, setThinking] = useState(false);
   const [messages, addMessage] = useContext(ChatContext);
 
@@ -20,7 +20,7 @@ const ChatView = () => {
    * Scrolls the chat area to the bottom.
    */
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   /**
@@ -58,16 +58,16 @@ const ChatView = () => {
       : formValue;
 
     const newMsg = cleanPrompt;
-    const aiModel = 'ChatGPT';
+    const aiModel = "ChatGPT";
 
     setThinking(true);
-    setFormValue('');
+    setFormValue("");
     updateMessage(newMsg, false, aiModel);
 
     try {
-        const response = await davinci(cleanPrompt, key);
-        const data = response.data.choices[0].message.content;
-        data && updateMessage(data, true, aiModel);
+      const response = await davinci(cleanPrompt, key);
+      const data = response.data.choices[0].message.content;
+      data && updateMessage(data, true, aiModel);
     } catch (err) {
       window.alert(`Error: ${err} please try again later`);
     }
@@ -76,7 +76,7 @@ const ChatView = () => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       // 👇 Get input value
       sendMessage(e);
     }
@@ -97,8 +97,8 @@ const ChatView = () => {
   }, []);
 
   return (
-    <div className='chatview'>
-      <main className='chatview__chatarea mt-3'>
+    <div className="chatview">
+      <main className="chatview__chatarea mt-3">
         {messages.map((message, index) => (
           <ChatMessage key={index} message={{ ...message }} />
         ))}
@@ -106,20 +106,21 @@ const ChatView = () => {
 
         <span ref={messagesEndRef}></span>
       </main>
-      <form className='form' onSubmit={sendMessage}>
-        <div className='flex flex-row-reverse items-stretch justify-between w-full my-5'>
+      <form className="form" onSubmit={sendMessage}>
+        <div className="flex flex-row-reverse items-stretch justify-between w-full my-5">
           <textarea
             ref={inputRef}
-            className='chatview__textarea-message'
+            className="chatview__textarea-message"
             value={formValue}
             onKeyDown={handleKeyDown}
             onChange={(e) => setFormValue(e.target.value)}
-            placeholder='سوال خود را بپرسید'
+            placeholder="سوال خود را بپرسید"
           />
           <button
-            type='submit'
-            className='cursor-pointer'
-            disabled={!formValue}>
+            type="submit"
+            className="cursor-pointer"
+            disabled={!formValue}
+          >
             <SiTelegram size={50} color="rgb(16, 76, 130)" />
           </button>
         </div>

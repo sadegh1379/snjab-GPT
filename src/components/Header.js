@@ -7,7 +7,7 @@ function Header() {
       <button className='absolute text-xs md:text-lg left-2 md:left-12 top-2 md:top-10 bg-s-blue text-white px-10 py-2 rounded-3xl'>
         بازگشت
       </button>
-      <img src={Logo} alt="snjab" className='w-24 md:w-44'/>
+      <img src={Logo} alt="snjab" className='w-24 md:w-52'/>
       <p className='md:text-3xl text-xl text-gray-700 font-semibold'> هوش مصنوعی سنجـاب</p>
       <p className='text-xs text-gray-500 font-bold'>نسخه: SNJAB-AI-3.5-TURBO</p>
     </div>
