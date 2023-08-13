@@ -85,9 +85,9 @@ const ChatView = () => {
   /**
    * Scrolls the chat area to the bottom when the messages array is updated.
    */
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, thinking]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages, thinking]);
 
   /**
    * Focuses the TextArea input to when the component is first rendered.

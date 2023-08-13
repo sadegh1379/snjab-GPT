@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>
+    <div className='relative flex flex-col justify-center items-center'>
       header
     </div>
   )
