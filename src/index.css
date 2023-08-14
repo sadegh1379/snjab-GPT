@@ -65,7 +65,8 @@
 
   /* ChatMessage */
   .message {
-    @apply py-4 px-3 mx-2 my-2 rounded-md gap-2 flex flex-row-reverse font-bold ;
+    @apply py-4 px-3 mx-2 my-2 rounded-md gap-2 flex flex-row-reverse font-bold text-[13px] ;
+    line-height: 2.5em;
   }
 
   .message__wrapper {
