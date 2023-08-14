@@ -108,9 +108,8 @@ const ChatView = () => {
       </main>
       <form className="form" onSubmit={sendMessage}>
         <div className="flex flex-row-reverse items-stretch justify-between w-full my-5">
-          <input
+          <textarea
             ref={inputRef}
-            type="text"
             className="chatview__textarea-message"
             value={formValue}
             onKeyDown={handleKeyDown}
