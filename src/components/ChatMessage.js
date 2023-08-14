@@ -15,7 +15,7 @@ import Image from './Image';
  */
 const ChatMessage = (props) => {
   const { id, createdAt, text, ai = false, selected } = props.message;
-
+  console.log('text:', text);
   return (
     <div
       key={id}
