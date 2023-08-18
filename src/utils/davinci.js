@@ -2,7 +2,9 @@ import { Configuration, OpenAIApi } from 'openai';
 
 export const davinci = async (prompt, key) => {
   const configuration = new Configuration({
-    apiKey: process.env.REACT_APP_OPEN_AI_API_KEY,
+    // apiKey: process.env.REACT_APP_OPEN_AI_API_KEY,
+    apiKey: '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',
+    basePath: 'https://aisnjob.com',
   });
 
   const openai = new OpenAIApi(configuration);
@@ -24,6 +26,7 @@ export const davinci = async (prompt, key) => {
     top_p: 0.3,
     frequency_penalty: 0.5,
     presence_penalty: 0.2,
+    
   });
 
   return response;
